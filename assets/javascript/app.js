@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var movies = ["moulin rouge", "clueless", "mean girls", "drop dead fred", "breakfast at tiffanys", "cruel intentions", "donnie darko", "a night at the roxbury"];
+	var movies = ["infiniti wars", "captain marvel", "guardians of the galaxy", "", "avengers", "thor", "black panther", ];
 
 	// Add buttons for original movies array
     
@@ -24,3 +24,10 @@ $(document).ready(function () {
     });
 
 }); // console logged - found an error - incorrect script adder on index.html.
+
+    // Getting gifs from api... onto html
+    
+	$("button").on("click", function () {
+		var movie = $(this).attr("data-movie");
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+			movie + "&api_key=dc6zaTOxFJmzC&limit=10"
