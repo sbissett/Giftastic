@@ -42,3 +42,31 @@ $(document).ready(function () {
                     var movieDiv = $("<div>");
                     var p = $("<p>").text("Rating: " + results[i].rating);
                     var movieImg = $("<img>");
+
+                movieImg.attr("src", results[i].images.original_still.url);
+				movieImg.attr("data-still", results[i].images.original_still.url);
+				movieImg.attr("data-animate", results[i].images.original.url);
+				movieImg.attr("data-state", "still");
+				movieImg.attr("class", "gif");
+				movieDiv.append(p);
+				movieDiv.append(movieImg);
+				$("#movies").append(movieDiv);
+			}
+		});
+    });
+    
+    unction changeState(){
+		var state = $(this).attr("data-state");
+		var animateImage = $(this).attr("data-animate");
+		var stillImage = $(this).attr("data-still");
+
+		if (state == "still") {
+			$(this).attr("src", animateImage);
+			$(this).attr("data-state", "animate");
+		}
+
+		else if (state == "animate") {
+			$(this).attr("src", stillImage);
+			$(this).attr("data-state", "still");
+		}
+	}
