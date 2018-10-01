@@ -55,7 +55,7 @@ $(document).ready(function () {
 		});
     });
     
-    unction changeState(){
+    function changeState(){
 		var state = $(this).attr("data-state");
 		var animateImage = $(this).attr("data-animate");
 		var stillImage = $(this).attr("data-still");
