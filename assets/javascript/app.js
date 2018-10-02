@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var movies = ["infiniti wars", "captain marvel", "guardians of the galaxy", "", "avengers", "thor", "black panther", ];
+    
+    var movies = ["infiniti wars", "captain marvel", "guardians of the galaxy",  "avengers", "thor", "black panther", ];
 
 	// Add buttons for original movies array
     
@@ -16,21 +17,19 @@ $(document).ready(function () {
 
     $("#add-move").on("click", function() {
             event.preventDefault();
-            var movie = $("movie-input").val().trim();
+            var movie = $("#movie-input").val();
             movies.push(movie);
             renderButtons();
             return;
 
+            console.log("see my button");
+
+
     });
-
-}); // console logged - found an error - incorrect script adder on index.html.
-
-    // Getting gifs from api... onto html
-
-	$("button").on("click", function () {
+	$("#movie-buttons").on("click", "button", function () {
 		var movie = $(this).attr("data-movie");
-		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            movie + "&api_key=dc6zaTOxFJmzC&limit=10"
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=nGKBhsI7MJQ4LwIltneWOxOx1WA4JmW7&limit=10" 
+                console.log("working for movies")
             
            $.ajax({
                 url: queryURL,
@@ -54,6 +53,16 @@ $(document).ready(function () {
 			}
 		});
     });
+            $("movie-buttons").on("click","img", function () {
+                    console.log($("this"));
+
+            });
+
+}); // console logged - found an error - incorrect script adder on index.html.
+
+    // Getting gifs from api... onto html
+
+
     
     function changeState(){
 		var state = $(this).attr("data-state");
@@ -69,4 +78,16 @@ $(document).ready(function () {
 			$(this).attr("src", stillImage);
 			$(this).attr("data-state", "still");
 		}
-	}
+    }
+	// $("img").on("click", function() {
+	// 	console.log("click worked!");
+	// 	var src = movieImg.attr(src);
+	// 	src = src.substring(0, src.length - 10);
+	// 	src += ".url";
+	// 	console.log(src);
+	// 	movieImg.attr("src", src);
+	// });
+
+	// $(document).on("click", "#input", displayImg);
+	// $(document).on("click", ".gif", changeState);
+
