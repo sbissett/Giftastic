@@ -56,6 +56,14 @@ $(document).ready(function () {
             $("movie-buttons").on("click","img", function () {
                     console.log($("this"));
 
+                    var src = movieImg.attr(src);
+                    src = src.substring(0, src.length - 10);
+                    src += ".url";
+                    console.log(src);
+                    movieImg.attr("src", src)
+                    // $(document).on("click", "#input", displayImg);
+                    // $(document).on("click", ".gif", changeState);
+
             });
 
 }); // console logged - found an error - incorrect script adder on index.html.
@@ -79,15 +87,9 @@ $(document).ready(function () {
 			$(this).attr("data-state", "still");
 		}
     }
-	// $("img").on("click", function() {
-	// 	console.log("click worked!");
-	// 	var src = movieImg.attr(src);
-	// 	src = src.substring(0, src.length - 10);
-	// 	src += ".url";
-	// 	console.log(src);
-	// 	movieImg.attr("src", src);
+
+	;
 	// });
 
-	// $(document).on("click", "#input", displayImg);
-	// $(document).on("click", ".gif", changeState);
+
 
